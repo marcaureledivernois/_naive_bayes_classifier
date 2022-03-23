@@ -1,3 +1,5 @@
+import pandas as pd
+
 
 #creating a spam model
 #runs once on a training data
@@ -13,7 +15,7 @@ def train:
     pNotA = (total - numSpam)/float(total)
 
 #reading words from a specific email
-  def processEmail(body , label):
+def processEmail(body , label):
     for word in body:
         if label == SPAM
            trainPositive[word] = trainPositive.get(word, 0) + 1
@@ -21,6 +23,7 @@ def train:
         else
           trainNegative[word] = trainNegative.get(word, 0) + 1
             negativeTotal += 1
+
 #gives the conditional probability p(B_i/A_x)
 def conditionalEmail(body , spam) :
   result =1.0
@@ -39,3 +42,6 @@ def conditionalWord(word, spam):
     if spam:
        return (trainPositive.get(word,0)+alpha)/(float)(positiveTotal+alpha*numWords)
     return (trainNegative.get(word,0)+alpha)/(float)(negativeTotal+alpha*numWords)
+
+
+data_kaggle = pd.read_csv('spam.csv')
