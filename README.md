@@ -27,6 +27,9 @@ Example : p(Class_j | sentence) ∝ p(word_1 | class_j) * p(word_2 | class_j) * 
 
 with p(word_i | class_j) = #(word_i & class_j) / #(class_j)
 
+Note thath for the previous example we use the bag-of-word model : we just count words
+without taking into account their order in the sentence
+
 ## Laplace smoothing 
 
 One issue is that if some feature values rarely show, their likelihood will be zero, 
