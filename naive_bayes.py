@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
 import string
 
 #creating a spam model
@@ -50,6 +51,7 @@ def conditionalWord(word, spam):
     else:
         return (trainNegative.get(word,0)+alpha)/(float)(count_words['spam']+alpha*numWords)
 
+## Load data
 
 data_kaggle = pd.read_csv('spam.csv')
 X = data_kaggle['v2']
@@ -58,6 +60,7 @@ y = data_kaggle['v1']
 y.value_counts(normalize=True)
 X_train, X_test,y_train, y_test = train_test_split(X,y,test_size=0.33)
 
+## Train model
 
 alpha = 1
 trainPositive = {}
@@ -67,6 +70,9 @@ words = set()
 pA, pNotA = train(X_train,y_train)
 numWords = len(words)
 
-for (email,label) in zip(X_train,y_train):
-    pred = classify(email)
-    truth = label
+## Classification
+
+preds = X_train.apply(classify)
+y_train=='spam' #true if spam, false if ham
+
+confusion_matrix(y_train=='spam', preds)
