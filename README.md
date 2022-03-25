@@ -57,5 +57,5 @@ to recode the continuous features into quartiles.
 ## Credits
 
 * Siraj Raval
-* [AlanBuzdar](https://github.com/alanbuzdar)
-* [Zixuan Zhang](https://towardsdatascience.com/naive-bayes-explained-9d2b96f4a9c0)
+* Disclaimer : Code is used as an illustration of the README theory file. Code has been forked from [AlanBuzdar](https://github.com/alanbuzdar) and [Zixuan Zhang](https://towardsdatascience.com/naive-bayes-explained-9d2b96f4a9c0). I mainly corrected/updated it to make it work on my computers.
+
